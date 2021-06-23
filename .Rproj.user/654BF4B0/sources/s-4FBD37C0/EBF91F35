@@ -1,0 +1,26 @@
+{
+    "id": "EBF91F35",
+    "path": "~/git/DSPGSampleRepo/src/functions/db.R",
+    "project_path": "src/functions/db.R",
+    "type": "r_source",
+    "hash": "2216783683",
+    "contents": "",
+    "dirty": false,
+    "created": 1624416267175.0,
+    "source_on_save": false,
+    "relative_order": 8,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "18,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1624416320,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1624416320835,
+    "read_only": false,
+    "read_only_alternatives": []
+}
