@@ -4,9 +4,18 @@ output:
   html_document:
     toc: yes
     toc_float: yes
+    theme: cosmo
 ---
 
+```{css, echo = FALSE}
+h1, #TOC ul>li {
+  color: #000000;
+  background-color: #ffffff;
+}
+```
+
 ------------------------------------------------------------------------
+
 
 ## **Response Time Modeling**
 

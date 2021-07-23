@@ -13,10 +13,9 @@
 
 <title>Data Structure</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -364,13 +363,19 @@ div.tocify {
 </div>
 
 
+<style type="text/css">
+h1, #TOC ul>li {
+  color: #000000;
+  background-color: #ffffff;
+}
+</style>
 <hr />
 <div id="create-a-single-record-of-latest-info-for-each-property" class="section level2">
 <h2>Create a Single Record of Latest Info for each Property</h2>
 <p><img src="images/reduce_to_latest_values.png" /></p>
 <p>Administrative data records like real estate tax records have, by their nature, multiple entries over time of information related to some entity. For example, for a single property parcel there will be a separate entry for each sale that has occurred. However, it is rare for all pertinent information to be fully entered every time. For example, the number of bedrooms may be consistently entered when a sale occurs, but possibly not again when a record is entered for recording annual property tax not associated with a sale. Also, values can change over time from record to record (e.g property additions change the number of bedrooms). Also, it is reasonable to expect that the entries will not always be accurate (misspellings, transpositions, etc).</p>
 <p>For real estate tax records it is reasonable to assume that the most recent entry is the most probably valid entry (e.g. number of bedrooms recently recorded will be more accurate than number of bedrooms recorded before an addition was added to the house). However, <strong>the most recent record will not necessarily have all of the needed information</strong> (see previous paragraph). Therefore, for each unique real estate parcel, we need to get the <strong>latest recorded value for each item/variable</strong> we are interested in using.</p>
-<p>Accordingly, we create a <u>unique id table with a single record for each parcel</u> and <u>individual tables for each item/variable</u> (number of bedrooms, number of bathrooms, living square footage, etc.). These are then all joined to create a table of just the <strong>latest recorded information for each item/variable for each unique parcel</strong>.</p>
+<p>Accordingly, we create a <span class="ul">unique id table with a single record for each parcel</span> and <span class="ul">individual tables for each item/variable</span> (number of bedrooms, number of bathrooms, living square footage, etc.). These are then all joined to create a table of just the <strong>latest recorded information for each item/variable for each unique parcel</strong>.</p>
 </div>
 <div id="create-a-function-to-build-the-sql-queries-necessary-to-get-most-recent-item-recordings" class="section level2">
 <h2><strong>Create a function to build the SQL queries necessary to get most recent item recordings</strong></h2>

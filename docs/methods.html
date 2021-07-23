@@ -13,10 +13,9 @@
 
 <title>Methodology</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -364,6 +363,12 @@ div.tocify {
 </div>
 
 
+<style type="text/css">
+h1, #TOC ul>li {
+  color: #000000;
+  background-color: #ffffff;
+}
+</style>
 <hr />
 <div id="response-time-modeling" class="section level2">
 <h2><strong>Response Time Modeling</strong></h2>
@@ -392,7 +397,7 @@ div.tocify {
 <p>We began by using a linear model. Because the distribution of response times was heavily right skewed, we log transformed the data prior to fitting. Our model was as follows:</p>
 <center>
 <p>log(Response Time)i|α,β1,…β9,σ∼iidN((α+β1(COVID era)i+βT2(Demographics)i+βT3(Symptoms)i+βT4(Vehicle)i+βT5(Time of Day)i+(COVID era)i∗βT6(Demographics)i+βT7(Symptoms)i+βT8(Vehicle)i+βT9(Time of Day)i),σ2)log(Response Time)i|α,β1,…β9,σ∼iidN(α+β1(COVID era)i+β2T(Demographics)i+β3T(Symptoms)i+β4T(Vehicle)i+β5T(Time of Day)i+(COVID era)i∗(β6T(Demographics)i+β7T(Symptoms)i+β8T(Vehicle)i+β9T(Time of Day)i),σ2)</p>
-<p><u>β1,…,β9∼iidN(0,1.1)α∼N(0,4.6)σ∼Exp(2.2)β1,…,β9∼iidN(0,1.1)α∼N(0,4.6)σ∼Exp(2.2)</u></p>
+<p><span class="ul">β1,…,β9∼iidN(0,1.1)α∼N(0,4.6)σ∼Exp(2.2)β1,…,β9∼iidN(0,1.1)α∼N(0,4.6)σ∼Exp(2.2)</span></p>
 </center>
 <p>Where COVID era is an indicator variable with value 1 for incidents after March 15th, 2020 and 0 otherwise. Note that each bolded coefficient actually represents a set of coefficients that accounts for the multiple categorical levels within each variable type.</p>
 <p>We included an interaction term for “COVID Era” so we could assess whether the effects on response times of any of the other factors included in the model have changed with the advent of the COVID-19 pandemic.</p>
@@ -401,7 +406,7 @@ div.tocify {
 <p>In an attempt to control for these issues, we fit the following multilevel model:</p>
 <center>
 <p>log(Response Time)|α,β,b,σ∼N(α+Xβ+Zb,σ2I)log(Response Time)|α,β,b,σ∼N(α+Xβ+Zb,σ2I)</p>
-<p><u>α∼N(0,4.6)β∼N(0,1.15I)b|Σ∼N(0,Σ)σ∼Exp(0,2.2)Σ∼Decomposition of Covariance(1,1,1,1)</u></p>
+<p><span class="ul">α∼N(0,4.6)β∼N(0,1.15I)b|Σ∼N(0,Σ)σ∼Exp(0,2.2)Σ∼Decomposition of Covariance(1,1,1,1)</span></p>
 </center>
 <p>Here XX and ββ are identical to the earlier specification and have been written as such for simplicity. ZZ is a matrix encoding deviations in intercepts and covariates across neighborhoods. The prior for ΣΣ is complicated to write out, and is specified using the <code>rstanarm</code> function <code>decov(1,1,1,1)</code>. More can be found on this specification <a href="http://mc-stan.org/rstanarm/articles/glmer.html">here</a>.</p>
 <p>By including information about the neighborhood that each incident occurred in, we hoped to both account for any spatial autocorrelation as well as our inability to more directly measure vehicle travel distance.</p>

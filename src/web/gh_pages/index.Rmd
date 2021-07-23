@@ -1,7 +1,19 @@
 ---
 title: "Understanding Incarceration and Recidivism in Halifax County, Virginia"
-output: html_document
+output:
+  html_document:
+    theme: cosmo
+    highlight: espresso
 ---
+
+```{css, echo = FALSE}
+h1, #TOC ul>li {
+  color: #000000;
+  background-color: #ffffff;
+}
+```
+
+------------------------------------------------------------------------
 
 The United States incarcerates more people per capita than anywhere else in the world,^1^ and a disproportionate number of those incarcerated are Black and Hispanic.^2^ Estimates from the ACLU suggest that one out of every three Black males and one out of every six Latino males will be incarcerated, compared to only one out of seventeen White males.
 

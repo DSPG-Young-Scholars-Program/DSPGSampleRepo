@@ -4,10 +4,15 @@ output:
   html_document:
     toc: yes
     toc_float: yes
-editor_options: 
-  markdown: 
-    wrap: 72
+    theme: cosmo
 ---
+
+```{css, echo = FALSE}
+h1, #TOC ul>li {
+  color: #000000;
+  background-color: #ffffff;
+}
+```
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(eval=FALSE)
